@@ -18,8 +18,18 @@ nodebrew install v16.0.0
 npm install yarn
 ```
 
-### start
+### start app as a develop mode
 
 ```
+yarn dev
+```
+
+start application at http://localhost:3000
+
+### production build and start
+
+```
+
+yarn build
 yarn start
 ```
