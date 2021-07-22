@@ -21,15 +21,18 @@ npm install yarn
 ### start app as a develop mode
 
 ```
+yarn
 yarn dev
 ```
 
-start application at http://localhost:3000
+Then, start application at http://localhost:3000
 
 ### production build and start
 
 ```
-
+yarn
 yarn build
 yarn start
 ```
+
+Then, start application at http://localhost:3000
