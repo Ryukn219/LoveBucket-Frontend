@@ -1,5 +1,12 @@
 import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentInitialProps,
+} from "next/document";
+import { ServerStyleSheets } from "@material-ui/core/styles";
 
 class MyDocument extends Document {
   render(): JSX.Element {
@@ -19,5 +26,27 @@ class MyDocument extends Document {
     );
   }
 }
+
+// add this code block to use Material-UI
+// TODO: 後で調べて理解する
+MyDocument.getInitialProps = async (context): Promise<DocumentInitialProps> => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = context.renderPage;
+  context.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
+  const initialProps = await Document.getInitialProps(context);
+
+  return {
+    ...initialProps,
+    styles: [
+      <React.Fragment key="styles">
+        {initialProps.styles}
+        {sheets.getStyleElement()}
+      </React.Fragment>,
+    ],
+  };
+};
 
 export default MyDocument;

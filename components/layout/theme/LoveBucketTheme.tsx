@@ -1,16 +1,17 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from "@material-ui/core/styles";
 
-export const LoveBucketTheme = createMuiTheme({
+export const LoveBucketTheme = createTheme({
   palette: {
     primary: {
       main: "#B5EAEA",
     },
-    warning: {
+    secondary: {
       main: "#FFBCBC",
     },
-  },
-  typography: {
-    fontFamily: "Roboto",
+    text: {
+      primary: "#ffffff",
+      secondary: "#F38BA0",
+    },
   },
 });
 
