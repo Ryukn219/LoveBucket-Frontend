@@ -13,9 +13,6 @@ export const LoveBucketTheme = createTheme({
       secondary: "#F38BA0",
     },
   },
-  typography: {
-    fontFamily: "Roboto",
-  },
 });
 
 export default LoveBucketTheme;
