@@ -1,5 +1,12 @@
 import React from "react";
-import { makeStyles, Theme, Box, Typography } from "@material-ui/core";
+import {
+  makeStyles,
+  Box,
+  Typography,
+  Theme,
+  IconButton,
+} from "@material-ui/core";
+import { Add as AddIcon } from "@material-ui/icons";
 import DoingList from "../DoingList/DoingList";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -15,9 +22,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: "90%",
     backgroundColor: theme.palette.primary.main,
     textAlign: "center",
-    paddingBottom: "10%",
+    paddingBottom: "3%",
     borderRadius: "16px",
     marginLeft: "5%",
+  },
+  addIcon: {
+    color: "white",
+    marginTop: "3%",
   },
 }));
 
@@ -36,6 +47,9 @@ const DoingLists: React.FC<DoingListsProps> = (
       {doingListsIds?.map((id) => {
         return <DoingList id={id} key={id} />;
       })}
+      <IconButton className={classes.addIcon}>
+        <AddIcon />
+      </IconButton>
     </Box>
   );
 };
